@@ -22,5 +22,7 @@ func main() {
 	tweetStore := tweet.NewFileStore(args[1])
 
 	feed := feed.NewTweetFeed(userStore, tweetStore)
-	feed.Print(os.Stdout)
+	if err := feed.Print(os.Stderr); err != nil {
+		log.Fatal(err)
+	}
 }
