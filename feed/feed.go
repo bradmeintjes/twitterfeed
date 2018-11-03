@@ -1,8 +1,8 @@
 package feed
 
 import (
-	"allangray/tf/tweet"
-	"allangray/tf/user"
+	"codeassignment/tf/tweet"
+	"codeassignment/tf/user"
 	"fmt"
 	"io"
 	"sort"

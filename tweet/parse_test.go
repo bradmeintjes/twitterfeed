@@ -1,7 +1,7 @@
 package tweet
 
 import (
-	"allangray/tf/util"
+	"codeassignment/tf/util"
 	"testing"
 )
 

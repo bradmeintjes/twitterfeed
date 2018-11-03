@@ -1,9 +1,9 @@
 package main
 
 import (
-	"allangray/tf/feed"
-	"allangray/tf/tweet"
-	"allangray/tf/user"
+	"codeassignment/tf/feed"
+	"codeassignment/tf/tweet"
+	"codeassignment/tf/user"
 	"log"
 	"os"
 )

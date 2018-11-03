@@ -1,10 +1,10 @@
 package feed
 
 import (
-	"allangray/tf/tweet"
-	"allangray/tf/user"
-	"allangray/tf/util"
 	"bytes"
+	"codeassignment/tf/tweet"
+	"codeassignment/tf/user"
+	"codeassignment/tf/util"
 	"testing"
 )
 
