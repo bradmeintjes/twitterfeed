@@ -27,7 +27,7 @@ docker build -t twitter-feed .
 
 which can be executed using 
 ````
-docker run -v `pwd`/res/:/var/ twitter_feed:latest /var/user.txt ~/var/tweet.txt
+docker run -it -v `pwd`/res/:/var/ twitter_feed:latest /var/user.txt /var/tweet.txt
 ````
 
 ## Testing
