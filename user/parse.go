@@ -84,7 +84,7 @@ func parseUsersFromFile(file string) (map[string]*User, error) {
 
 		// append all followed users to the user object (union)
 		for _, id := range follows {
-			user.Follows.Add(users[id])
+			user.Follow(users[id])
 		}
 		users[userID] = user
 	}

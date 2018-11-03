@@ -15,9 +15,9 @@ func TestParseFromFile(t *testing.T) {
 	util.AssertNotNil(t, users, "should parse users from file")
 	util.CheckEq(t, 3, len(users), "should parse users correctly")
 
-	// sort users by name for consistency
+	// sort users by id for consistency
 	sort.Slice(users, func(i, j int) bool {
-		return users[i].Name < users[j].Name
+		return users[i].Identifier < users[j].Identifier
 	})
 
 	checkUserEq(t, users[0], "Alan", "Martin")
@@ -55,21 +55,20 @@ func TestParseLine(t *testing.T) {
 }
 
 func checkUserEq(t *testing.T, user *User, name string, follows ...string) {
-	util.CheckEq(t, name, user.Name, "should match name")
-	util.CheckEq(t, len(follows), len(user.Follows.ToSlice()), "should have correct number of follows")
+	util.CheckEq(t, name, user.Identifier, "should match identifier")
+	util.CheckEq(t, len(follows), len(user.Follows), "should have correct number of follows")
 
 	for _, follow := range follows {
 		found := false
 
-		it := user.Follows.Iterator()
-		for v := range it.C {
-			if v.(*User).Name == follow {
+		for _, v := range user.Follows {
+			if v.Identifier == follow {
 				found = true
 			}
 		}
 
 		if !found {
-			t.Logf("unmatched follower for user %s: %s", user.Name, follow)
+			t.Logf("unmatched follower for user %s: %s", user.Identifier, follow)
 			t.Fail()
 			return
 		}
